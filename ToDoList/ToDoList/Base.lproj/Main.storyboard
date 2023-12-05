@@ -29,16 +29,24 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VZf-My-8F8">
-                                                    <rect key="frame" x="0.0" y="0.0" width="157" height="21"/>
+                                                    <rect key="frame" x="20" y="5" width="157" height="21"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Jwg-W2-Y8m">
-                                                    <rect key="frame" x="156" y="-1" width="157" height="21"/>
+                                                <switch opaque="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="gd2-dn-Iic">
+                                                    <rect key="frame" x="299" y="0.0" width="49" height="31"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <rect key="contentStretch" x="0.0" y="0.0" width="1" height="0.5"/>
+                                                    <connections>
+                                                        <action selector="changeStateOfATodo:" destination="BYZ-38-t0r" eventType="valueChanged" id="27f-kj-1if"/>
+                                                    </connections>
+                                                </switch>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="justified" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Jwg-W2-Y8m">
+                                                    <rect key="frame" x="20" y="34" width="330" height="45"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
@@ -47,6 +55,7 @@
                                         <connections>
                                             <outlet property="desc" destination="Jwg-W2-Y8m" id="P0o-LL-CqE"/>
                                             <outlet property="name" destination="VZf-My-8F8" id="G6R-83-VPi"/>
+                                            <outlet property="state" destination="gd2-dn-Iic" id="IbE-gT-d7p"/>
                                             <segue destination="a7a-rC-nSf" kind="show" id="itY-Ov-g70"/>
                                         </connections>
                                     </tableViewCell>
@@ -73,7 +82,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="700" y="118.52678571428571"/>
+            <point key="canvasLocation" x="698.55072463768124" y="118.52678571428571"/>
         </scene>
         <!--View Controller Add To Do-->
         <scene sceneID="E0w-hB-cwm">
@@ -174,6 +183,10 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="6Tz-Z8-4oq">
+                                <rect key="frame" x="332" y="77" width="49" height="31"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </switch>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="TqT-CV-lYo"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -182,6 +195,7 @@
                     <connections>
                         <outlet property="descDetails" destination="HA3-mY-1Zv" id="iMd-8a-mxD"/>
                         <outlet property="nameDetails" destination="vXc-XD-pGP" id="VMo-Fy-QO0"/>
+                        <outlet property="stateDetails" destination="6Tz-Z8-4oq" id="Wmx-4T-c9l"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="RQy-O8-oc0" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

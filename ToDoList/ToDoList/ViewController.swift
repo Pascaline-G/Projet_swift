@@ -19,10 +19,18 @@ class ViewController: UIViewController, UITableViewDataSource {
         let todos = toDoList.getToDos()
         todoCell.desc.text = todos[row].Description
         todoCell.name.text = todos[row].Name
+        todoCell.state.isOn = todos[row].State
         return todoCell
     }
     
-
+    @IBAction func changeStateOfATodo(_ sender: UISwitch) {
+        let state = sender.isOn
+        let a = sender.superview?.superview
+        let tablecell = a as! UITableViewCell
+        let row = self.todosTableView.indexPath(for: tablecell)!.row
+        self.toDoList.get(index: row).State = state
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         for i in 1...10{
@@ -50,6 +58,7 @@ class ViewController: UIViewController, UITableViewDataSource {
             let todo = self.toDoList.get(index: selectedRow)
             detailTodo.name = todo.Name
             detailTodo.desc = todo.Description
+            detailTodo.state = todo.State
         }
         if segue.destination is ViewControllerAddToDo {
             let addTodoView = segue.destination as! ViewControllerAddToDo

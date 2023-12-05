@@ -10,11 +10,13 @@ import Foundation
 class ToDo {
     private var name: String
     private var description: String
+    private var state: Bool
     
     
     init(name: String, description: String) {
         self.name = name
         self.description = description
+        self.state = false
     }
     
     public var Description: String {
@@ -32,6 +34,14 @@ class ToDo {
         }
         set(name) {
             self.name = name
+        }
+    }
+    public var State: Bool {
+        get {
+            return self.state
+        }
+        set(state) {
+            self.state = state
         }
     }
 }

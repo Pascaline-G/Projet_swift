@@ -10,17 +10,19 @@ import UIKit
 class ViewControllerDetails: UIViewController {
     var name : String = ""
     var desc : String = ""
+    var state : Bool = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
         nameDetails.text = name
         descDetails.text = desc
+        stateDetails.isOn = state
         // Do any additional setup after loading the view.
     }
     
     @IBOutlet weak var nameDetails: UILabel!
-    
+    @IBOutlet weak var stateDetails: UISwitch!
     @IBOutlet weak var descDetails: UILabel!
     /*
     // MARK: - Navigation

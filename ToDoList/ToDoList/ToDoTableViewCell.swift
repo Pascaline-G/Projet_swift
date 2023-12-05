@@ -22,4 +22,5 @@ class ToDoTableViewCell: UITableViewCell {
     
     @IBOutlet weak var name: UILabel!
     @IBOutlet weak var desc: UILabel!
+    @IBOutlet weak var state: UISwitch!
 }
