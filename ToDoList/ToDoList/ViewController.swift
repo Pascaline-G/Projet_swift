@@ -34,17 +34,27 @@ class ViewController: UIViewController, UITableViewDataSource {
         
         self.todosTableView.dataSource = self
     }
+    
+    public func addToDo(todo: ToDo) {
+        toDoList.addToDo(todo: todo)
+        self.todosTableView.reloadData()
+    }
 
     private var toDoList : ToDoList = ToDoList()
     @IBOutlet weak var todosTableView: UITableView!
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        let detailTodo = segue.destination as! ViewControllerDetails
-        let selectedRow = todosTableView.indexPathForSelectedRow!.row
-        let todo = self.toDoList.get(index: selectedRow)
-        detailTodo.name = todo.Name
-        detailTodo.desc = todo.Description
-        
+        if segue.destination is ViewControllerDetails {
+            let detailTodo = segue.destination as! ViewControllerDetails
+            let selectedRow = todosTableView.indexPathForSelectedRow!.row
+            let todo = self.toDoList.get(index: selectedRow)
+            detailTodo.name = todo.Name
+            detailTodo.desc = todo.Description
+        }
+        if segue.destination is ViewControllerAddToDo {
+            let addTodoView = segue.destination as! ViewControllerAddToDo
+            addTodoView.setView(originalView: self)
+        }
     }
 }
 
