@@ -20,6 +20,7 @@ class ViewController: UIViewController, UITableViewDataSource {
         todoCell.desc.text = todos[row].Description
         todoCell.name.text = todos[row].Name
         todoCell.state.isOn = todos[row].State
+        
         return todoCell
     }
     
