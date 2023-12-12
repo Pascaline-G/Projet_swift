@@ -2,7 +2,7 @@
 //  ToDo.swift
 //  ToDoList
 //
-//  Created by esirem on 28/11/2023.
+//  Created by Pascaline, Arnaud on 28/11/2023.
 //
 
 import Foundation
@@ -11,12 +11,14 @@ class ToDo {
     private var name: String
     private var description: String
     private var state: Bool
+    private var _date: Date
     
     
     init(name: String, description: String) {
         self.name = name
         self.description = description
         self.state = false
+        self._date = Date()
     }
     
     public var Description: String {
@@ -36,12 +38,22 @@ class ToDo {
             self.name = name
         }
     }
+    
     public var State: Bool {
         get {
             return self.state
         }
         set(state) {
             self.state = state
+        }
+    }
+    
+    public var date: Date {
+        get {
+            return self._date
+        }
+        set(date) {
+            self._date = date
         }
     }
 }

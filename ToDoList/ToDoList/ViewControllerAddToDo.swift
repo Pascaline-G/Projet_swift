@@ -2,7 +2,7 @@
 //  ViewControllerAddToDo.swift
 //  ToDoList
 //
-//  Created by esirem on 05/12/2023.
+//  Created by Pascaline, Arnaud on 05/12/2023.
 //
 
 import UIKit
@@ -28,6 +28,7 @@ class ViewControllerAddToDo: UIViewController {
     */
     @IBOutlet weak var labelName: UITextField!
     @IBOutlet weak var labelDesc: UITextField!
+    @IBOutlet weak var datePicker: UIDatePicker!
     
     private var originalView: ViewController!
     
@@ -36,7 +37,9 @@ class ViewControllerAddToDo: UIViewController {
     }
 
     @IBAction func createTodo(_ sender: Any) {
+        let date = datePicker.date
         let todo = ToDo(name: labelName.text!, description: labelDesc.text!)
+        todo.date = date
         originalView.addToDo(todo: todo)
         self.navigationController?.popViewController(animated: true)
         dismiss(animated: true, completion: nil)

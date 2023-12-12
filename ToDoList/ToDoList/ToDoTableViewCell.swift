@@ -2,7 +2,7 @@
 //  ToDoTableViewCell.swift
 //  ToDoList
 //
-//  Created by esirem on 28/11/2023.
+//  Created by Pascaline, Arnaud on 28/11/2023.
 //
 
 import UIKit
@@ -23,4 +23,5 @@ class ToDoTableViewCell: UITableViewCell {
     @IBOutlet weak var name: UILabel!
     @IBOutlet weak var desc: UILabel!
     @IBOutlet weak var state: UISwitch!
+    @IBOutlet weak var dateUI: UILabel!
 }

@@ -2,7 +2,7 @@
 //  ViewController.swift
 //  ToDoList
 //
-//  Created by esirem on 28/11/2023.
+//  Created by Pascaline, Arnaud on 28/11/2023.
 //
 
 import UIKit
@@ -16,20 +16,34 @@ class ViewController: UIViewController, UITableViewDataSource {
         let todoCell = tableView.dequeueReusableCell(withIdentifier: "todos", for: indexPath) as! ToDoTableViewCell
         let row = indexPath.row
         
+        toDoList.sortByDate()
         let todos = toDoList.getToDos()
         todoCell.desc.text = todos[row].Description
         todoCell.name.text = todos[row].Name
         todoCell.state.isOn = todos[row].State
+        
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "d.M.yyyy"
+        let formattedDate = dateFormatter.string(from: todos[row].date)
+        todoCell.dateUI.text = formattedDate
         
         return todoCell
     }
     
     @IBAction func changeStateOfATodo(_ sender: UISwitch) {
         let state = sender.isOn
-        let a = sender.superview?.superview
-        let tablecell = a as! UITableViewCell
+        let supersuperview = sender.superview?.superview
+        let tablecell = supersuperview as! UITableViewCell
         let row = self.todosTableView.indexPath(for: tablecell)!.row
         self.toDoList.get(index: row).State = state
+    }
+    
+    @IBAction func deleteAToDo(_ sender: UIButton) {
+        let supersuperview = sender.superview?.superview
+        let tablecell = supersuperview as! UITableViewCell
+        let row = self.todosTableView.indexPath(for: tablecell)!.row
+        toDoList.remove(index: row)
+        self.todosTableView.reloadData()
     }
     
     override func viewDidLoad() {
