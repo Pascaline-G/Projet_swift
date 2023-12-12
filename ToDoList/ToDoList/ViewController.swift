@@ -23,7 +23,7 @@ class ViewController: UIViewController, UITableViewDataSource {
         todoCell.state.isOn = todos[row].State
         
         let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "d.M.yyyy"
+        dateFormatter.dateFormat = "dd/MM/yy"
         let formattedDate = dateFormatter.string(from: todos[row].date)
         todoCell.dateUI.text = formattedDate
         
@@ -74,6 +74,11 @@ class ViewController: UIViewController, UITableViewDataSource {
             detailTodo.name = todo.Name
             detailTodo.desc = todo.Description
             detailTodo.state = todo.State
+            
+            let dateFormatter = DateFormatter()
+            dateFormatter.dateFormat = "dd/MM/yyyy"
+            let formattedDate = dateFormatter.string(from: todo.date)
+            detailTodo.date = formattedDate
         }
         if segue.destination is ViewControllerAddToDo {
             let addTodoView = segue.destination as! ViewControllerAddToDo
