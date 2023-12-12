@@ -9,15 +9,24 @@ import UIKit
 
 class ViewController: UIViewController, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return toDoList.size()
+        return toDoList.getSectionbyDate(section: section).count
+    }
+    
+    func numberOfSections(in tableView: UITableView) -> Int {
+       return 4
+    }
+    
+    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+
+        return "bouh"
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let todoCell = tableView.dequeueReusableCell(withIdentifier: "todos", for: indexPath) as! ToDoTableViewCell
         let row = indexPath.row
         
-        toDoList.sortByDate()
-        let todos = toDoList.getToDos()
+        
+        let todos = toDoList.getSectionbyDate(section: indexPath.section)
         todoCell.desc.text = todos[row].Description
         todoCell.name.text = todos[row].Name
         todoCell.state.isOn = todos[row].State
@@ -25,6 +34,8 @@ class ViewController: UIViewController, UITableViewDataSource {
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "dd/MM/yy"
         let formattedDate = dateFormatter.string(from: todos[row].date)
+        
+        
         todoCell.dateUI.text = formattedDate
         
         return todoCell

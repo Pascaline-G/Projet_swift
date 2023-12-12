@@ -36,4 +36,36 @@ class ToDoList {
         })
     }
     
+    public func getSectionbyDate(section: Int) -> [ToDo] {
+        var res = [ToDo]()
+        var comparator: (Date)->Bool
+        switch section {
+        case 0:
+            comparator = {
+                (date: Date)->Bool in return Calendar.current.isDateInToday(date)
+            }
+        case 1:
+            comparator = {
+                (date: Date)->Bool in return Calendar.current.isDateInTomorrow(date)
+            }
+        case 2:
+            comparator = {
+                (date: Date)->Bool in return date == Date()
+            }
+        case 3:
+            comparator = {
+                (date: Date)->Bool in return date == Date()
+            }
+        default:
+            comparator = {
+                (date: Date)->Bool in return date == Date()
+            }
+        }
+        for todo in todos {
+            if(comparator(todo.date)) {
+                res.append(todo)
+            }
+        }
+        return res
+    }
 }
