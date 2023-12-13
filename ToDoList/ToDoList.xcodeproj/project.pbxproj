@@ -20,6 +20,7 @@
 		B6E8E2762B162ABB008F3C6A /* ViewControllerDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6E8E2752B162ABB008F3C6A /* ViewControllerDetails.swift */; };
 		B6EC62E02B29B56500D8170B /* CategoryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6EC62DF2B29B56500D8170B /* CategoryTableViewCell.swift */; };
 		B6EC62E72B29B76200D8170B /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6EC62E62B29B76200D8170B /* Category.swift */; };
+		B6EC62EA2B29BDDD00D8170B /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6EC62E92B29BDDD00D8170B /* SearchViewController.swift */; };
 		B6FE219D2B1F4D310004B8C8 /* ViewControllerAddToDo.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6FE219C2B1F4D310004B8C8 /* ViewControllerAddToDo.swift */; };
 /* End PBXBuildFile section */
 
@@ -39,6 +40,7 @@
 		B6E8E2752B162ABB008F3C6A /* ViewControllerDetails.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerDetails.swift; sourceTree = "<group>"; };
 		B6EC62DF2B29B56500D8170B /* CategoryTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryTableViewCell.swift; sourceTree = "<group>"; };
 		B6EC62E62B29B76200D8170B /* Category.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Category.swift; sourceTree = "<group>"; };
+		B6EC62E92B29BDDD00D8170B /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
 		B6FE219C2B1F4D310004B8C8 /* ViewControllerAddToDo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerAddToDo.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -87,6 +89,7 @@
 				B640DE6D2B289293007F8A21 /* ViewControllerCategories.swift */,
 				B6EC62DF2B29B56500D8170B /* CategoryTableViewCell.swift */,
 				B6EC62E62B29B76200D8170B /* Category.swift */,
+				B6EC62E92B29BDDD00D8170B /* SearchViewController.swift */,
 			);
 			path = ToDoList;
 			sourceTree = "<group>";
@@ -167,6 +170,7 @@
 				B6E8E2762B162ABB008F3C6A /* ViewControllerDetails.swift in Sources */,
 				B640DE6E2B289293007F8A21 /* ViewControllerCategories.swift in Sources */,
 				B6EC62E02B29B56500D8170B /* CategoryTableViewCell.swift in Sources */,
+				B6EC62EA2B29BDDD00D8170B /* SearchViewController.swift in Sources */,
 				B6FE219D2B1F4D310004B8C8 /* ViewControllerAddToDo.swift in Sources */,
 				B6E8E26A2B161C16008F3C6A /* ToDoTableViewCell.swift in Sources */,
 				B6E8E2512B161564008F3C6A /* SceneDelegate.swift in Sources */,

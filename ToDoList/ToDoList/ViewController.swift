@@ -103,6 +103,12 @@ class ViewController: UIViewController, UITableViewDataSource {
             let categories = toDoList.getTodoByCategory()
             categoriesView.categories = categories
         }
+        if segue.destination is SearchViewController {
+            let searchView = segue.destination as! SearchViewController
+            searchView.todoList = toDoList
+        
+        }
     }
+    
 }
 
