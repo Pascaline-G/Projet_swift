@@ -60,12 +60,6 @@ class ViewController: UIViewController, UITableViewDataSource {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        for i in 1...10{
-            let name = "TODO n°" + String(i)
-            let desc = "Tache à faire n°" + String(i)
-            let todo = ToDo(name: name, description: desc)
-            toDoList.addToDo(todo: todo)
-        }
         sectionsToDo = toDoList.getSections()
         self.todosTableView.dataSource = self
     }
