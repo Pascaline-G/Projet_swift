@@ -29,6 +29,7 @@ class ViewControllerAddToDo: UIViewController {
     @IBOutlet weak var labelName: UITextField!
     @IBOutlet weak var labelDesc: UITextField!
     @IBOutlet weak var datePicker: UIDatePicker!
+    @IBOutlet weak var CategorieText: UITextField!
     
     private var originalView: ViewController!
     
@@ -40,6 +41,10 @@ class ViewControllerAddToDo: UIViewController {
         let date = datePicker.date
         let todo = ToDo(name: labelName.text!, description: labelDesc.text!)
         todo.date = date
+        let category = CategorieText.text!
+        if(!category.isEmpty) {
+            todo.Categories = category
+        }
         originalView.addToDo(todo: todo)
         self.navigationController?.popViewController(animated: true)
         dismiss(animated: true, completion: nil)

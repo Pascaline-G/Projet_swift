@@ -98,6 +98,11 @@ class ViewController: UIViewController, UITableViewDataSource {
             let addTodoView = segue.destination as! ViewControllerAddToDo
             addTodoView.setView(originalView: self)
         }
+        if segue.destination is ViewControllerCategories {
+            let categoriesView = segue.destination as! ViewControllerCategories
+            let categories = toDoList.getTodoByCategory()
+            categoriesView.categories = categories
+        }
     }
 }
 

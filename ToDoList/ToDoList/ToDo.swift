@@ -12,6 +12,7 @@ class ToDo {
     private var description: String
     private var state: Bool
     private var _date: Date
+    private var category : String
     
     
     init(name: String, description: String) {
@@ -19,6 +20,7 @@ class ToDo {
         self.description = description
         self.state = false
         self._date = Date()
+        self.category = "Other"
     }
     
     public var Description: String {
@@ -54,6 +56,15 @@ class ToDo {
         }
         set(date) {
             self._date = date
+        }
+    }
+    
+    public var Categories: String {
+        get {
+            return self.category
+        }
+        set(category) {
+            self.category = category
         }
     }
 }

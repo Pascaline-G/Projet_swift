@@ -78,4 +78,25 @@ class ToDoList {
         }
         return res
     }
+    
+    public func getTodoByCategory() -> [Category] {
+        var res = [Category]()
+        
+        for todo in todos {
+            var found = false
+            for category in res {
+                if(category.Name == todo.Categories) {
+                    category.addTodo(todo: todo)
+                    found = true
+                    break;
+                }
+            }
+            if(!found) {
+                res.append(Category(name: todo.Categories, todos: [todo]))
+            }
+            
+        }
+        
+        return res
+    }
 }
