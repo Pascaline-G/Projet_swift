@@ -36,6 +36,14 @@ class ToDoList {
         })
     }
     
+    public func getSections() -> [[ToDo]] {
+        var res = [[ToDo]]()
+        for i in 0...3 {
+            res.append(getSectionbyDate(section: i))
+        }
+        return res
+    }
+    
     public func getSectionbyDate(section: Int) -> [ToDo] {
         var res = [ToDo]()
         var comparator: (Date)->Bool
@@ -49,16 +57,18 @@ class ToDoList {
                 (date: Date)->Bool in return Calendar.current.isDateInTomorrow(date)
             }
         case 2:
+            var dateComponentWeek = DateComponents()
+            dateComponentWeek.day = 7
+            var dateComponentTom = DateComponents()
+            dateComponentTom.day = 1
             comparator = {
-                (date: Date)->Bool in return date == Date()
-            }
-        case 3:
-            comparator = {
-                (date: Date)->Bool in return date == Date()
+                (date: Date)->Bool in return (Calendar.current.date(byAdding: dateComponentWeek, to: Date())! > date) && (Calendar.current.date(byAdding: dateComponentTom, to: Date())! < date)
             }
         default:
+            var dateComponentWeek = DateComponents()
+            dateComponentWeek.day = 7
             comparator = {
-                (date: Date)->Bool in return date == Date()
+                (date: Date)->Bool in return Calendar.current.date(byAdding: dateComponentWeek, to: Date())! < date
             }
         }
         for todo in todos {

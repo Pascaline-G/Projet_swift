@@ -9,16 +9,16 @@ import UIKit
 
 class ViewController: UIViewController, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return toDoList.getSectionbyDate(section: section).count
+        return sectionsToDo[section].count
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {
-       return 4
+       return sectionsToDo.count
     }
     
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-
-        return "bouh"
+        let sectionName = ["Today", "Tomorrow", "This week", "Later"]
+        return sectionName[section]
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -26,7 +26,7 @@ class ViewController: UIViewController, UITableViewDataSource {
         let row = indexPath.row
         
         
-        let todos = toDoList.getSectionbyDate(section: indexPath.section)
+        let todos = sectionsToDo[indexPath.section]
         todoCell.desc.text = todos[row].Description
         todoCell.name.text = todos[row].Name
         todoCell.state.isOn = todos[row].State
@@ -54,7 +54,8 @@ class ViewController: UIViewController, UITableViewDataSource {
         let tablecell = supersuperview as! UITableViewCell
         let row = self.todosTableView.indexPath(for: tablecell)!.row
         toDoList.remove(index: row)
-        self.todosTableView.reloadData()
+        sectionsToDo = toDoList.getSections()
+        self.todosTableView.reloadData()        
     }
     
     override func viewDidLoad() {
@@ -65,15 +66,17 @@ class ViewController: UIViewController, UITableViewDataSource {
             let todo = ToDo(name: name, description: desc)
             toDoList.addToDo(todo: todo)
         }
-        
+        sectionsToDo = toDoList.getSections()
         self.todosTableView.dataSource = self
     }
     
     public func addToDo(todo: ToDo) {
         toDoList.addToDo(todo: todo)
+        sectionsToDo = toDoList.getSections()
         self.todosTableView.reloadData()
     }
 
+    private var sectionsToDo = [[ToDo]]()
     private var toDoList : ToDoList = ToDoList()
     @IBOutlet weak var todosTableView: UITableView!
     
